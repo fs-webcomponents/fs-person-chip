@@ -1,0 +1,90 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../fs-behavior/fs-behavior.html">
+<link rel="import" href="../fs-person-cache/fs-person-cache.html">
+<link rel="import" href="../fs-person-portrait/fs-person-portrait.html">
+
+<!--
+Display the portrait, name, and lifespan of a person.
+
+Basic example:
+
+    <fs-person-chip person-id="PPP-PPPP"></fs-person-chip>
+
+@group FamilySearch Elements
+@element fs-person-chip
+@demo demo/index.html
+-->
+<dom-module id="fs-person-chip">
+  <template>
+    <style>
+      :host {
+        overflow: auto;
+        display: block;
+      }
+      
+      #details {
+        font-size: smaller;
+      }
+    
+      fs-person-portrait {
+        float: left;
+        margin-right: 16px;
+        --fs-person-portrait-size: 40px;
+        --fs-person-portrait-border-radius: 20px;
+      }
+    </style>
+    <fs-person-cache client-name="{{clientName}}" person-id="{{personId}}" person="{{person}}"></fs-person-cache>
+    <fs-person-portrait person-id="{{personId}}"></fs-person-portrait>
+    <div id="name">Loading...</div>
+    <div id="details">
+      <span id="lifespan"></span> • <span id="pid"></span>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'fs-person-chip',
+
+    properties: {
+
+      /**
+       * Person ID
+       *
+       * @type String
+       */
+      personId: {
+        type: String,
+        notify: true,
+        reflectToAttribute: true
+      },
+      
+      /**
+       * Person
+       * 
+       * @type Object
+       */
+      person: {
+        type: Object,
+        notify: true,
+        observer: '_personChanged'
+      }
+
+    },
+    
+    behaviors: [FSBehavior],
+    
+    _personChanged: function(){
+      if(this.person){
+        this.$.name.textContent = this.person.getDisplayName();
+        this.$.lifespan.textContent = this.person.getDisplayLifeSpan();
+        this.$.pid.textContent = this.person.getId();
+      }
+    }
+    
+  });
+
+</script>
