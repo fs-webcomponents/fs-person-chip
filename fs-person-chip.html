@@ -69,6 +69,10 @@ Basic example:
         this.$.name.textContent = this.person.getDisplayName();
         this.$.lifespan.textContent = this.person.getDisplayLifeSpan();
         this.$.pid.textContent = this.person.getId();
+      } else {
+        this.$.name.textContent = '';
+        this.$.lifespan.textContent = '';
+        this.$.pid.textContent = '';
       }
     }
     
