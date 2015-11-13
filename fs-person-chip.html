@@ -48,19 +48,6 @@ Basic example:
   Polymer({
 
     is: 'fs-person-chip',
-
-    properties: {
-      
-      /**
-       * Person
-       * 
-       * @type Object
-       */
-      person: {
-        observer: '_personChanged'
-      }
-
-    },
     
     behaviors: [FSPersonBehavior],
     
