@@ -22,7 +22,7 @@
     "fs-client": "fs-webcomponents/fs-client#~0.1.9",
     "fs-behavior": "fs-webcomponents/fs-behavior#~0.1.4",
     "fs-person-portrait": "fs-webcomponents/fs-person-portrait#~0.1.12",
-    "fs-person-behavior": "fs-webcomponents/fs-person-behavior#~0.1.7"
+    "fs-person-behavior": "fs-webcomponents/fs-person-behavior#master"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
