@@ -1,2 +1,4 @@
 # fs-person-chip
-Display the portrait, name, and lifespan of a person
+
+An __experimental__ Polymer component that displays the portrait, name, lifespan,
+and ID of a person in the FamilySearch Tree. Inspired by [Material Design chip](https://www.google.com/design/spec/components/chips.html).
