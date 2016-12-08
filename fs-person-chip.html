@@ -33,7 +33,7 @@ Basic example:
         --fs-person-portrait-border-radius: 20px;
       }
     </style>
-    <fs-client name="[[clientName]]"></fs-client>
+    <fs-client name="[[clientName]]" on-authenticated-changed="_authenticatedChanged"></fs-client>
     <fs-person-portrait person="[[person]]"></fs-person-portrait>
     <div id="name">Loading...</div>
     <div id="details">
@@ -53,9 +53,9 @@ Basic example:
     
     _personChanged: function(){
       if(this.person){
-        this.$.name.textContent = this.person.getDisplayName();
-        this.$.lifespan.textContent = this.person.getDisplayLifeSpan();
-        this.$.pid.textContent = this.person.getId();
+        this.$.name.textContent = this.person.display.name;
+        this.$.lifespan.textContent = this.person.display.lifespan;
+        this.$.pid.textContent = this.person.id;
       } else {
         this.$.name.textContent = '';
         this.$.lifespan.textContent = '';
