@@ -26,6 +26,7 @@
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "fs-signin": "fs-webcomponents/fs-signin#^1.0.0",
-    "paper-card": "PolymerElements/paper-card#~1.0.5"
+    "paper-card": "PolymerElements/paper-card#~1.0.5",
+    "fs-client": "fs-webcomponents/fs-client#^1.1.0"
   }
 }

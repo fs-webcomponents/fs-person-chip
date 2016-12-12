@@ -12,7 +12,7 @@
     <link rel="import" href="../../paper-styles/demo-pages.html">
   </head>
   <body unresolved>
-    <style>
+    <style is="custom-style">
       paper-card {
         width: 400px;
       }
@@ -20,9 +20,13 @@
       fs-person-chip:not(:first-child) {
         margin-top: 16px;
       }
+      
+      fs-person-chip:last-child {
+        cursor: pointer;
+      }
     </style>
 
-    <fs-client app-key="a02j00000099Mc2AAE" redirect-uri="." environment="sandbox" save-access-token></fs-client>
+    <fs-client app-key="a02j00000099Mc2AAE" redirect-uri="." environment="sandbox" save-access-token reload-after-code="."></fs-client>
     <fs-signin></fs-signin>
     <br><br>
 

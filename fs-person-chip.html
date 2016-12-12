@@ -10,6 +10,14 @@ Basic example:
 
     <fs-person-chip person-id="PPP-PPPP"></fs-person-chip>
 
+### Styling
+
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--fs-person-chip-hover` | Mixin applied on hover | {}
+
 @group FamilySearch Elements
 @element fs-person-chip
 @demo demo/index.html
@@ -31,6 +39,10 @@ Basic example:
         margin-right: 16px;
         --fs-person-portrait-size: 40px;
         --fs-person-portrait-border-radius: 20px;
+      }
+      
+      :host:hover {
+        @apply(--fs-person-chip-hover);
       }
     </style>
     <fs-client name="[[clientName]]" on-authenticated-changed="_authenticatedChanged"></fs-client>
