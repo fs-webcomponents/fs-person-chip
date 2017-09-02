@@ -45,36 +45,35 @@ Custom property | Description | Default
         @apply --fs-person-chip-hover;
       }
     </style>
-    <fs-client name="[[clientName]]" on-authenticated-changed="_authenticatedChanged"></fs-client>
+    <fs-client></fs-client>
     <fs-person-portrait person="[[person]]"></fs-person-portrait>
     <div id="name">Loading...</div>
     <div id="details">
       <span id="lifespan"></span> • <span id="pid"></span>
     </div>
   </template>
+  <script>
+  
+    Polymer({
+  
+      is: 'fs-person-chip',
+      
+      behaviors: [FSPersonBehavior],
+      
+      _personChanged: function(){
+        if(this.person){
+          this.$.name.textContent = this.person.display.name;
+          this.$.lifespan.textContent = this.person.display.lifespan;
+          this.$.pid.textContent = this.person.id;
+        } else {
+          this.$.name.textContent = '';
+          this.$.lifespan.textContent = '';
+          this.$.pid.textContent = '';
+        }
+      }
+      
+    });
+  
+  </script>
 
 </dom-module>
-
-<script>
-
-  Polymer({
-
-    is: 'fs-person-chip',
-    
-    behaviors: [FSPersonBehavior],
-    
-    _personChanged: function(){
-      if(this.person){
-        this.$.name.textContent = this.person.display.name;
-        this.$.lifespan.textContent = this.person.display.lifespan;
-        this.$.pid.textContent = this.person.id;
-      } else {
-        this.$.name.textContent = '';
-        this.$.lifespan.textContent = '';
-        this.$.pid.textContent = '';
-      }
-    }
-    
-  });
-
-</script>
