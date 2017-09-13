@@ -1,6 +1,5 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../fs-client/fs-client.html">
-<link rel="import" href="../fs-person-behavior/fs-person-behavior.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../fs-person-mixin/fs-person-mixin.html">
 <link rel="import" href="../fs-person-portrait/fs-person-portrait.html">
 
 <!--
@@ -45,7 +44,6 @@ Custom property | Description | Default
         @apply --fs-person-chip-hover;
       }
     </style>
-    <fs-client></fs-client>
     <fs-person-portrait person="[[person]]"></fs-person-portrait>
     <div id="name">Loading...</div>
     <div id="details">
@@ -53,14 +51,9 @@ Custom property | Description | Default
     </div>
   </template>
   <script>
-  
-    Polymer({
-  
-      is: 'fs-person-chip',
-      
-      behaviors: [FSPersonBehavior],
-      
-      _personChanged: function(){
+    class FSPersonChip extends FSPersonMixin(Polymer.Element) {
+      static get is() { return 'fs-person-chip'; }
+      _personChanged() {
         if(this.person){
           this.$.name.textContent = this.person.display.name;
           this.$.lifespan.textContent = this.person.display.lifespan;
@@ -71,9 +64,7 @@ Custom property | Description | Default
           this.$.pid.textContent = '';
         }
       }
-      
-    });
-  
+    }
+    customElements.define(FSPersonChip.is, FSPersonChip);
   </script>
-
 </dom-module>
