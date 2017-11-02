@@ -45,10 +45,12 @@ Custom property | Description | Default
       }
     </style>
     <fs-person-portrait person="[[person]]"></fs-person-portrait>
-    <div id="name"></div>
-    <div id="details">
-      <span id="lifespan"></span> • <span id="pid"></span>
-    </div>
+    <slot>
+      <div id="name"></div>
+      <div id="details" hidden$="[[!_displayDetails(person)]]">
+        <span id="lifespan"></span> • <span id="pid"></span>
+      </div>
+    </slot>
   </template>
   <script>
     class FSPersonChip extends FSPersonMixin(Polymer.Element) {
@@ -63,6 +65,9 @@ Custom property | Description | Default
           this.$.lifespan.textContent = '';
           this.$.pid.textContent = '';
         }
+      }
+      _displayDetails(person) {
+        return !!person;
       }
     }
     customElements.define(FSPersonChip.is, FSPersonChip);
