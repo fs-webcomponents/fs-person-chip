@@ -1,6 +1,6 @@
 {
   "name": "fs-person-chip",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Display the portrait, name, and lifespan of a person.",
   "keywords": [
     "web-component",
